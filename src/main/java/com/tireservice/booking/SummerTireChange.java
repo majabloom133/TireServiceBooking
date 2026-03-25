@@ -2,7 +2,7 @@ package com.tireservice.booking;
 
 // subclass - represents summer tire change service
 // Inherits common data from Service class (parent)
-public class SummerTireChange extends Service {
+public class SummerTireChange extends Service implements Discountable {
 
     // Private field - for Encapsulation. Specific to this service.
     private int durationMinutes;
@@ -16,11 +16,18 @@ public class SummerTireChange extends Service {
         this.durationMinutes = durationMinutes;
     }
 
-    // Overriding abstract method from parent
+    // Implement method from Discountable interface
+    @Override
+    public double applyDiscount(double price) {
+        // Apply 10% discount
+        double discountRate = 0.10;
+        return price * (1.0 - discountRate);
+    }
+
+    // Use interface method
     @Override
     public double calculatePrice() {
-        // Applying 10% discount for summer
-        double seasonalDiscount = 0.9;
-        return getBasePrice() * seasonalDiscount;
+        // Use 'this' to call the implemented method above
+        return applyDiscount(getBasePrice());
     }
 }
