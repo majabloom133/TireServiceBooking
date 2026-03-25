@@ -20,9 +20,10 @@ public class WinterTireChange extends Service {
 
     // Overriding abstract method in parent
     @Override
-    public double calculatePrice() {
+    public int calculatePrice() {
         // Adding specific storage fee for winter tires
         double storageFee = 500.0;
-        return getBasePrice() + storageFee;
+        // Cast result to (int) to convert double
+        return (int) (getBasePrice() + storageFee);
     }
 }

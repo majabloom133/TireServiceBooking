@@ -1,33 +1,26 @@
 package com.tireservice.booking;
 
-// subclass - represents summer tire change service
-// Inherits common data from Service class (parent)
-public class SummerTireChange extends Service implements Discountable {
+// subclass for summer tire change service
+// Inherits from Service (parent)
+public class SummerTireChange extends Service {
 
-    // Private field - for Encapsulation. Specific to this service.
+    // Private field for encapsulation - specific to this service
     private int durationMinutes;
 
-    // Constructor for SummerTireChange.
-    // Passes data to Serice class (parent)
+    // Constructor for SummerTireChange
     public SummerTireChange(String id, String name, double basePrice, int durationMinutes) {
-        // 'super' connects child with parent (Service)
+        // 'super' connects child with parent
         super(id, name, basePrice);
-        // Assign local parameter to class field
         this.durationMinutes = durationMinutes;
     }
 
-    // Implement method from Discountable interface
     @Override
-    public double applyDiscount(double price) {
+    public int calculatePrice() {
         // Apply 10% discount
         double discountRate = 0.10;
-        return price * (1.0 - discountRate);
-    }
+        double finalPrice = getBasePrice() * (1.0 - discountRate);
 
-    // Use interface method
-    @Override
-    public double calculatePrice() {
-        // Use 'this' to call the implemented method above
-        return applyDiscount(getBasePrice());
+        // Cast to int to match abstract method's return type
+        return (int) finalPrice;
     }
 }
