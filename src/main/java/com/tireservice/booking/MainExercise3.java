@@ -14,7 +14,7 @@ public class MainExercise3 {
         BookingProcessor processor = new MemberBookingProcessor();
 
         // Or this:  For guest rules
-        // Bookingprocessor processor = new NonMemberBookingProcessor();
+        // BookingProcessor processor = new NonMemberBookingProcessor();
 
         // Process booking
         Booking result = processor.processBooking(request);

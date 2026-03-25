@@ -22,10 +22,11 @@ public class MainExercise2 {
         for (Service s : services) {
             // 's' is Service reference
             // Java finds correct Overridden method in subclass
-            double finalPrice = s.calculatePrice();
+            int finalPrice = s.calculatePrice();
 
             System.out.println("Service: " + s.getName());
-            System.out.println("Final Price: " + finalPrice);
+            // Cast back to double if you want .0 in print
+            System.out.println("Final Price: " + (double) finalPrice);
             System.out.println("----------------------------");
 
         }
