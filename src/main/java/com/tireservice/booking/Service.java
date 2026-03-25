@@ -1,5 +1,6 @@
 package com.tireservice.booking;
 
+// Exercise 1 & 2
 // Abstract class for all services. Acts like a blueprint.
 public abstract class Service {
     // Private fields for Encapsulation (hiding data)
@@ -25,5 +26,5 @@ public abstract class Service {
 
     // Abstract method - must be implemented by subclasses
     // Defines contract for calculating final price
-    public abstract double calculatePrice();
+    public abstract int calculatePrice();
 }
